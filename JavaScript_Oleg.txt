@@ -1,0 +1,182 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////OLEG SAVELEV/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////WEB222 Assignment #4/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////JavaScript Functions/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Variables declaration:
+var inputFahr = document.getElementById("tempFahrID");
+var historyArea = document.getElementById("historyAreaID");
+
+document.getElementById("averageBtnID").disabled = true;
+document.getElementById("resetBtnID").disabled = true;
+
+document.getElementById("historyAreaID").value = "";
+document.getElementById("tempFahrID").value = "";
+document.getElementById("tempCelsID").value = "";
+document.getElementById("resetBtnID").style.display = "none";
+
+document.getElementById("convertBtnID").disabled = true;
+
+var arrayFahr = [];
+var arrayCels = [];
+var totalFahr = 0;
+var totalCels = 0;
+var averageFahr = 0;
+var averageCels = 0;
+
+
+document.getElementById("convertBtnID").onclick = fConvert;
+document.getElementById("averageBtnID").onclick = fAverage;
+
+
+//Functions:
+if (inputFahr)
+{
+    document.addEventListener("keydown", fIsEnterKey);
+}
+
+if (inputFahr)
+{
+    tempFahrID.addEventListener("keypress", fIsNumeric);  
+}
+
+
+function checkDisable()
+{
+    if (document.getElementById("tempFahrID").value != "" && document.getElementById("tempFahrID").value != "-")
+    {
+        document.getElementById("convertBtnID").disabled = false;
+    }
+
+    else
+    {
+        document.getElementById("convertBtnID").disabled = true;
+    }
+}
+
+
+function fConvert()
+{
+    document.getElementById("averageBtnID").disabled = false;    //Enables"Average" button
+
+    tempFahrID.setAttribute('maxlength', '4');
+
+    console.log(arrayFahr);
+    console.log(arrayCels);
+
+    const tempFahr = parseFloat(tempFahrID.value);
+    const tempCels = (tempFahr - 32) * (5 / 9); //Fahrenheit to Celsius conversion formula
+
+    tempCelsID.value = tempCels.toFixed(2);
+    arrayCels.push(tempCels);
+    arrayFahr.push(tempFahr);
+    tempFahrID.value = '';
+    document.getElementById("tempFahrID").focus();
+
+    var historyArea = document.getElementById('historyAreaID');
+    historyArea.value += tempFahr.toFixed(0) + "                 " + tempCels.toFixed(2) + "\n";
+
+    console.log(arrayFahr);
+    console.log(arrayCels);
+    console.log(arrayFahr.length);
+
+    if (arrayFahr.length == 9)  //After 9 inputs...
+    {
+        fAverage(); //...it calls "fAverage()" function.
+    }
+}
+
+
+function fLineSeparator()   //Creates a separator line between conversion history and average calculation
+{
+    return '===================================\n';
+}
+
+
+function fAverage()
+{
+    //Shows and Enables "Reset" button and disables "Convert" and "Average" buttons, and Fahrenheit input field
+    document.getElementById("resetBtnID").disabled = false;
+    document.getElementById("convertBtnID").disabled = true;
+    document.getElementById("averageBtnID").disabled = true;
+    document.getElementById("tempFahrID").disabled = true;
+    document.getElementById("resetBtnID").style.display = "block";
+
+    for (var index = 0; index < arrayFahr.length; index++)
+    {
+        totalFahr += arrayFahr[index];
+        totalCels += arrayCels[index];
+    }
+
+    averageFahr = totalFahr / arrayFahr.length;
+    averageCels = totalCels / arrayCels.length;
+
+    document.getElementById("historyAreaID").value += fLineSeparator();
+    document.getElementById("historyAreaID").value += averageFahr.toFixed(2) + "                 " + averageCels.toFixed(2) + "\n";
+    document.getElementById("tempFahrID").focus();
+}
+
+
+function fReset()
+{
+    //Enables "Convert" button and Fahrenheit input field and hides "Reset" button
+    document.getElementById("resetBtnID").style.display = "none";
+    document.getElementById("convertBtnID").disabled = false;
+    document.getElementById("tempFahrID").disabled = false;
+
+    //Resets all fields
+    historyArea.value = '';
+    tempFahrID.value = '';
+    tempCelsID.value = '';
+
+    //Resets all values
+    arrayFahr = [];
+    arrayCels = [];
+    totalFahr = 0;
+    totalCels = 0;
+    averageFahr = 0;
+    averageCels = 0;
+
+    document.getElementById("tempFahrID").focus();
+}
+
+
+function fIsEnterKey()
+{
+    var keyPressed = event.which || event.keyCode;
+    if (keyPressed === 13)  // If "Enter" key pressed...
+        if (document.getElementById("tempFahrID").value != "")  //...and the input field is not empty...
+            fConvert(); //...it runs "fConvert()" function.
+
+    //Same function, but different syntax:
+    /*
+    var keyPressed = (keyEvent.which) ? keyEvent.which : keyEvent.keyCode;
+        if (keyPressed == 13)  //If "Enter" key pressed...
+            fConvert(); //...run fConvert() function
+    */
+}
+
+
+function fIsNumeric()
+{
+    if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 8)
+    {
+        if (event.srcElement.value.length == 0 && event.keyCode == 45)
+        {
+            tempFahrID.setAttribute('maxlength', '5');
+            return true;
+        }
+
+        event.preventDefault();
+        return false;
+    }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////OLEG SAVELEV/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////WEB222 Assignment #4/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////JavaScript Functions/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

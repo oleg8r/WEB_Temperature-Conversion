@@ -1,0 +1,209 @@
+h1
+{
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    color: black;
+    letter-spacing: 5px;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+h2
+{
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    text-align: center;
+    color: black;
+    letter-spacing: 3px;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+h3
+{
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    text-align: center;
+    color: purple;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h4
+{
+    font-family: arial, times;
+    text-align: left;
+    color: #004445;
+    letter-spacing: 1px;
+}
+h5
+{
+    font-family: arial, times;
+    text-align: center;
+    color: #004445;
+}
+h6
+{
+    margin: 0;
+}
+body
+{
+    position:  absolute;
+    left: 0%;
+    margin: 0; 
+    width: 100%;
+}
+.background-image {
+    background-image: url("Background_Jernberg.png"), url("Background_Particles.png");
+    /*background-image: url("Background_Particles.png"), url("Background_Jernberg.png");*/
+    background-color: #ff6464; /* Used if the image is unavailable */
+    /*height: 1000px; /* You must set a specified height */
+    /*background-position: center; /* Center the image */
+    /*background-repeat: repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+header
+{
+    position: relative;
+    top: 0%;
+    margin: 0 auto;
+    height: 100px;
+    width: 100%;
+    color:rgba(91, 125, 218); 
+    background-color: rgb(245, 245, 245, 0.5);
+    box-shadow:	6px 6px 30px rgba(55, 55, 55, .6);
+}
+.mainContainer
+{
+    background-color: rgb(245, 245, 245, 0.5);
+    border: 0.2em solid rgba(50%, 50%, 50%, 0.5);
+    border-radius: 20px;
+    box-shadow:	6px 6px 30px rgba(55, 55, 55, .6);
+    margin: 0 auto; /*Always use it to center an element in the middle of the screen*/
+    padding: 0;
+    height: 700px;
+    width: 60%;
+    text-align: center;
+}
+p
+{
+    font-family: "Avant Garde", arial, times;
+    font-size:12pt;
+    margin: 0 auto;
+    text-align: center;
+}
+label
+{
+    font-family: "Avant Garde", arial, times;
+    font-size:14pt;
+    color:black;
+    text-align: center;
+    margin: 0 auto;
+}
+input
+{
+    font-family: "Avant Garde", arial, times;
+    font-size:12pt;
+    color:black;
+    margin: 0 auto;
+    border: 0.1em solid rgba(50%, 50%, 50%, 0.5);
+    border-radius: 10px;
+    box-shadow:	6px 6px 30px rgba(55, 55, 55, .6);
+}
+input[type="text"]:invalid
+{
+    color: #ff0000;
+}
+button
+{
+    font-family: "Avant Garde", arial, times;
+    font-size: 14pt;
+    color: blue;
+    /*text-align: center;*/
+    /*display: inherit;*/
+    /*display:inline-block;*/
+    /*margin: 0 auto;*/
+    border: 0.1em solid rgba(50%, 50%, 50%, 0.5);
+    border-radius: 15px;
+    box-shadow:	6px 6px 30px rgba(55, 55, 55);
+    background-image: linear-gradient(
+        180deg,
+        white,
+        grey
+    );
+}
+.buttonArea
+{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 20%;
+}
+.pointerCursor
+{
+    cursor: pointer;
+}
+.centering1
+{
+    margin: 0 auto; /*Always use it to center an element in the middle of the screen*/
+    text-align: center;
+}
+.centering2  /*it's the 2nd way to center in the middle of the screen*/
+{
+    left: 50%;				/*	align left to center of parent element	*/
+    margin-left: -15%;		/*	shift half of width to the left	*/
+    top: 60%;
+}
+#historyAreaID
+{
+    font-family: "Avant Garde", arial, times;
+    font-size:14pt;
+    font-style: italic;
+    color:green;
+    text-align: center;
+    margin: 0 auto;
+    height: 400px;
+    width: 50%;
+    background-color: rgb(245, 245, 245, 0.8);
+    border: 0.2em solid rgba(50%, 50%, 50%, 0.5);
+    border-radius: 15px;
+    box-shadow:	6px 6px 30px rgba(55, 55, 55, .6);
+}
+#container1 
+{
+    top: 200px;
+}
+#transition1
+{
+    color: blue;
+    transition: font-size 1s linear, color 1s linear;   /*To change them one by one with a constant speed*/
+    /*transition: all 0.5s ease-in 0.1s;*/	/*To change them all together with a different speed*/
+}
+#container1:hover #transition1
+{
+    color: goldenrod;
+    font-size: 1.1em;
+}
+#container1b
+{
+    top: 200px;
+}
+#transition1b
+{
+    color: blueviolet;
+    transition: font-size 1s linear, color 1s linear;   /*To change them one by one with a constant speed*/
+    /*transition: all 0.5s ease-in 0.1s;*/	/*To change them all together with a different speed*/
+}
+#container1b:hover #transition1b
+{
+    color: goldenrod;
+    font-size: 1.1em;
+}
+.glowing
+{
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0px 0px 6px orangered;
+}	

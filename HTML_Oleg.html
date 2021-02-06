@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+    author:        Oleg Savelev
+    student ID:    060494135
+    created for:   WEB222 Assignment #4
+    due date:      December 12, 2020
+-->
+
+<html lang="en" id="top">
+<!--
+    The above html tag signifies the beginning of this web page.
+    Top ID is used to get back to the top of the page from different places on the page.
+-->
+
+    <!--HEAD-->
+    <head>
+        
+        <meta charset="UTF-8" />
+        <!-- 
+		    1) The above meta tag tells the web browser of the character encoding (UTF-8 = Unicode Transformation Format-8) selected for this web page 
+            See http://www.iana.org/assignments/character-sets/character-sets.xml for more character sets.
+            2) This meta tag is mandatory for the assignment submission.
+	    -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--
+            1) The above meta tag tells the web browser to set the viewport of the web page as part of responsive web design.
+            To be properly displayed on different size monitors.
+            2) This meta tag is mandatory for the assignment submission.
+        -->
+
+	    <!--meta http-equiv="refresh" content="0; url=http://www.google.ca/" /-->
+	    <!-- 
+            The above meta tag tells the web browser to load a different web page after zero seconds (immediately.)
+            Please use this meta tag if the website address is changed. Just replace "http://www.google.ca/" with a new website address.
+	    -->
+	
+        <meta name="description" content="Course: WEB222 Topic: Assignment #3">
+        <!-- 
+            The above meta tag provides the web browser a short description of this web page.
+            Several browsers, like Firefox and Opera, use this as the default description of bookmarked pages.
+        -->
+        
+        <meta name="author" content="Oleg Savelev">
+        <!--The above meta tag provides the web browser a short description of this web page.-->
+
+
+        <title>Temperature Conversion by Oleg Savelev</title>
+        <!--The value in the above title tag will appear in the title bar of the web browser.-->
+    
+        <!--STYLE-->
+        <style> @import "CSS_Oleg.css"; </style>
+
+    </head>
+
+
+    <!--BODY-->
+    <body class="background-image">      <!-- This function loads the home page image and its description on page load -->
+
+        <!--HEADER-->
+        <header >
+            <h1 id="container1" class="glowing"><b id="transition1">Temperature Conversion</b></h1>
+            <h2 id="container1b" class="glowing"><b id="transition1b"><i>by Oleg Savelev</i></b></h2>
+        </header>       
+        <br>
+        <br>
+
+
+        <main class="mainContainer">
+
+            <!--INPUTS & LABELS-->
+            <section>
+                <h3> Fahrenheit: </h3>
+                <p><input autofocus id="tempFahrID" class="centering1" type="text" placeholder="Degrees in Fahrenheit" maxlength = "4" onkeydown="fIsEnterKey()" onkeypress="fIsNumeric()" oninput="checkDisable()"></p>
+            </section>
+
+            <section>
+                <h3> Celsius: </h3>
+                <p><input readonly id="tempCelsID" class="centering1" type="text" maxlength="0" placeholder="Degrees in Celsius"></p>
+            </section>
+
+            <!--TEXT AREA-->
+            <section>
+                <h3> Fahrenheit <sub><i>(left)</i></sub> to Celsius <sub><i>(right)</i></sub> </h3>
+                <textarea readonly id="historyAreaID" name="historyAreaID" cols="2" rows="10"></textarea>
+                <br>
+            </section>
+
+            <!--BUTTONS-->
+            <section class="buttonArea">
+                <h6>&nbsp;</h6> <!--Please specify temperature in Fahrenheit and press "Convert"-->
+                <button id="convertBtnID" class="pointerCursor" type="button" onclick="fConvert()" onfocus="tempFahrID"> Convert </button>
+                <button id="averageBtnID" class="pointerCursor" type="button" onclick="fAverage()" disabled="disabled"> Average </button>
+                <button id="resetBtnID" class="pointerCursor" type="button" onclick="fReset()" disabled="disabled" > Reset </button>
+            </section>
+
+        </main>
+
+        <script src="JavaScript_Oleg.js"> </script>
+
+    </body>
+
+<!--
+    author:        Oleg Savelev
+    student ID:    060494135
+    created for:   WEB222 Assignment #4
+    due date:      December 12, 2020
+-->
+
+</html>
